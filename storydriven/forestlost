@@ -1,0 +1,83 @@
+@echo off
+:startgame
+echo =------------------------------------------------------=
+echo Welcome to a simple batch test game!
+echo This game was made by Bluewy#5108
+echo Be sure to enjoy the game, everything will be clear :)
+echo =------------------------------------------------------=
+pause
+cls
+:dialog1
+echo Lost in the woods, no human soul to be seen in the dark.. 
+echo Where would one go, with no knowledge or certainty?
+echo You think and think and think, but only two things come to mind:
+echo - Wait for the day to fall (select 0)
+echo - Try to find your way out (select 1)
+set /p answer=
+if %answer%==0 (
+cls
+echo As you wait hours after hours, nothing happens, you decide to look around..
+pause
+echo Suddenly you fall down, fast and long, until finally, you hit the ground,
+echo where the impact kills you immediately, without mercy
+pause
+cls
+goto dialog1
+)
+if %answer%==1 (
+echo Carefully and nervous, you wander in one direction, something is pulling on you
+pause
+cls
+)else (
+echo Invalid answer, try again and choose a valid response.
+pause
+cls
+goto dialog1
+)
+:dialog2
+echo Finally, you decide to follow your guts, and end up at ruins
+echo You decide to inspect the ruins, finding a trapdoor
+echo What will you do?
+echo - Try to open it (select 0)
+echo - Keep inspecting ruins (select 1)
+set /p ruins=
+if %ruins%==0 (
+cls
+echo You try to open the trapdoor, realizing it's locked
+echo You need a key, but where is it?
+pause 
+cls
+goto dialog2
+)
+if %ruins%==1 (
+cls
+echo You inspect the ruins more, and find an item:
+echo A key, i wonder what this key is used for?
+pause
+cls
+goto dialog3
+)else (
+cls
+echo Invalid answer, try again and choose a valid response.
+pause
+goto dialog2
+)
+:dialog3
+echo You head back to the trapdoor, and unlock it with the key.
+echo As you open it, you smell something weird, choosing to ignore it, you enter
+pause
+cls
+echo Upon entering, you can't see anything, the smell is making you dizzy, so you must be fast
+echo as your eyes get used to the dark, you see all kinds of meat and skeletons, this scares you
+echo you quickly go to something shiny and grab it, then you run out again and away from the ruins
+pause
+cls
+echo Temporary end of game, thanks for playing!
+echo To replay, type 0
+set /p replay=
+if %replay%==0 (
+cls
+goto startgame
+)else (
+exit
+)
