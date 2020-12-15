@@ -1,157 +1,78 @@
 @echo off
-:startgame
-echo =------------------------------------------------------=
-echo Welcome to a simple batch test game!
-echo This game was made by Bluewy#5108
-echo Be sure to enjoy the game, everything will be clear :)
+:information
+echo _______________________________________________________________________________________
+echo Welcome to Lost in the forest, this is my first batch game, which was mainly a test.  ^|
+echo Hope you enjoy the game, and be sure to leave some feedback with me in discord.       ^|
+echo My discord username is Bluewy#5108                                                    ^|
+echo                                                                                       ^|
+echo Please play this game in full screen so formatting does not get messed up.            ^|
+echo When given a choice, it will always say a number behind the options you get, example: ^|
+echo Pet the husky (0) - In this case you should type the number 0 to choose this option.  ^|
+echo                                                                                       ^|
+echo You can check out my other games here:                                                ^|
+echo (They are all open source for the most part)                                          ^|
+echo https://github.com/BluewyDev/batchgames                                               ^|
+echo                                                                                       ^|
+echo Any choices you make will change the way the story goes, but not always.              ^|
+echo ______________________________________________________________________________________^|
+pause
+cls
+:gamestart
+echo  _               _     _         _   _             __                    _
+echo ^| ^|             ^| ^|   (_)       ^| ^| ^| ^|           / _^|                  ^| ^|
+echo ^| ^|     ___  ___^| ^|_   _ _ __   ^| ^|_^| ^|__   ___  ^| ^|_ ___  _ __ ___  ___^| ^|_
+echo ^| ^|    / _ \/ __^| __^| ^| ^| '_ \  ^| __^| '_ \ / _ \ ^|  _/ _ \^| '__/ _ \/ __^| __^|
+echo ^| ^|___^| (_) \__ \ ^|_  ^| ^| ^| ^| ^| ^| ^|_^| ^| ^| ^|  __/ ^| ^|^| (_) ^| ^| ^|  __/\__ \ ^|_
+echo \_____/\___/^|___/\__^| ^|_^|_^| ^|_^|  \__^|_^| ^|_^|\___^| ^|_^| \___/^|_^|  \___^|^|___/\__^|
+echo __________________________________________________________________________________________
+echo                                                                                          ^|
+echo Awoken by something licking you, you get up and see a fox running away, you look around. ^|
+echo It's incredibly dark, and you can barely distuingish the many trees from the rest.       ^|
+echo Then you realize, you are in a forest, how did you get here and why are you here?        ^|
+echo "How do i get out of here? I wonder what i should do..."                                 ^|
+echo _________________________________________________________________________________________^|
 echo.
-echo Remember that not providing answers where needed, will exit the game.
-echo =------------------------------------------------------=
-pause
+echo __________________________________________________________________________________________
+echo                                                                                          ^|
+echo Try to find a way out (0)                                                                ^|
+echo Search your pockets (1)                                                                  ^|
+echo Back to information (2)                                                                  ^|
+echo _________________________________________________________________________________________^|
+set /p startgame=
+if %startgame%==2 (
 cls
-:dialog1
-echo Lost in the woods, no human soul to be seen in the dark.. 
-echo Where would one go, with no knowledge or certainty?
-echo You think and think and think, but only two things come to mind:
-echo.
-echo - Wait for the day to fall (select 0)
-echo - Try to find your way out (select 1)
-set /p answer=
-if %answer%==0 (
-cls
-echo As you wait hours after hours, nothing happens, you decide to look around..
-pause
-echo Suddenly you fall down, fast and long, until finally, you hit the ground,
-echo where the impact kills you immediately, without mercy
-pause
-cls
-goto dialog1
+goto :information
 )
-if %answer%==1 (
+if %startgame%==1 (
 cls
-echo Carefully and nervous, you wander in one direction, something is pulling on you
+echo __________________________________________________________________________________________
+echo                                                                                          ^|
+echo You search your pockets, after a minute you find your phone and turn it on.              ^|
+echo As you turn it on, you realize your battery is low:                                      ^|
+echo "I need to call someone before my phone dies out", you think.                            ^|
+echo _________________________________________________________________________________________^|
+pause
+echo __________________________________________________________________________________________
+echo                                                                                          ^|
+echo You search through your contacts and call someone...                                     ^|
+echo But then, your phone turns off, battery having been drained, nothing to help you anymore ^|
+echo With this dissapointing moment, you decide to just try and find a way out.               ^|
+echo _________________________________________________________________________________________^|
 pause
 cls
-)else (
-echo Invalid answer, try again and choose a valid response.
-pause
-cls
-goto dialog1
+goto wayout
 )
-:dialog2
-echo Finally, you decide to follow your guts, and end up at ruins
-echo You decide to inspect the ruins, finding a trapdoor
-echo What will you do?
-echo - Try to open it (select 0)
-echo - Keep inspecting ruins (select 1)
-set /p ruins=
-if %ruins%==0 (
+if %startgame%==0 (
 cls
-echo You try to open the trapdoor, realizing it's locked
-echo You need a key, but where is it?
-pause 
-cls
-goto dialog2
-)
-if %ruins%==1 (
-cls
-echo You inspect the ruins more, and find an item:
-echo A key, i wonder what this key is used for?
-pause
-cls
-goto dialog3
-)else (
-cls
-echo Invalid answer, try again and choose a valid response.
-pause
-goto dialog2
-)
-:dialog3
-echo You head back to the trapdoor, and unlock it with the key.
-echo As you open it, you smell something weird, choosing to ignore it, you enter
-pause
-cls
-echo Upon entering, you can't see anything, the smell is making you dizzy, so you must be fast
-echo as your eyes get used to the dark, you see all kinds of meat and skeletons, this scares you
-echo you quickly go to something shiny and grab it, then you run out again and away from the ruins
-pause
-cls
-echo Moments later, you realize it's a flashlight, you try to turn it on..
-pause
-cls
-:dialogroad
-echo The flashlight works! You can see much better now, and you spot a road
-echo That road was not there before.. How is it there? What should i do?
-echo.
-echo - Follow the road (select 0)
-echo - Stay and sleep (select 1)
-echo - Go back to the ruins and inspect the underground room (select 2)
-set /p road=
-if %road%==0 (
-cls
-echo Following the road, Though nothing around you changes
-pause
-cls
-echo Finally you realize you are somehow walking on one spot continuously, defeated you go for another option
-pause
-cls
-goto dialogroad
-)
-if %road%==2 (
-cls
-echo You go back to the ruins, and search for the trapdoor
-pause
-cls
-echo You are unable to find it, it's like the trapdoor vanished
-echo Confused, you go for another option
-pause
-cls
-goto dialogroad
-)
-if %road%==1 (
-cls
-goto dialog4
+goto wayout
 )else (
 cls
-goto dialogroad
-)
-:dialog4
-cls
-echo You decide to go to sleep, though stay alert
-echo ...
-echo Suddenly you hear a sound while asleep, when you wake up, the realisation strikes..
-pause
-cls
-echo It's day
-echo But how?
-echo It hasn't been day for so long?
-echo Confused, you decide to follow the road
-pause
-cls
-echo As you walk, the sun slowly dries you, exhausted you arrive at a small wooden cabin at a lake
-echo You choose to sit down, and take a pause, as the road does not seem to end
-echo Eventually fainting from the warmth...
-pause
-cls
-:dialogwakingupohpleasegodjustendmealready
-echo You wake up a while later, and two things appear to you instantly:
-echo (The story changes depending on which option you choose here)
+echo Not a valid answer, please retry.
 echo.
-echo - Swim in the lake to wash yourself and your clothes (select 0)
-echo - Go on following the road (select 1)
-//set /p storychange=
-//if %storychange%==0 (
-//cls
-//echo - Choice 0 - swim in the lake and wash self and clothes
-//pause
-//)
-//if %storychange%==1 (
-//cls
-//echo Chapter 1 | Road of finity
-//pause
-//goto dialogwakingupohpleasegodjustendmealready
-//)else (
-//cls
-//goto dialogwakingupohpleasegodjustendmealready
-//)
-// - THIS PIECE OF JUNK CODE DOES NOT PROPERLY WORK YET, TYPING 1 SIMPLY CLOSES THE BATCH INSTEAD OF FOLLOWING THE IF
+echo.
+goto gamestart
+)
+:wayout
+echo test
+pause
+exit
