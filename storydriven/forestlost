@@ -4,6 +4,8 @@ echo =------------------------------------------------------=
 echo Welcome to a simple batch test game!
 echo This game was made by Bluewy#5108
 echo Be sure to enjoy the game, everything will be clear :)
+echo.
+echo Remember that not providing answers where needed, will exit the game.
 echo =------------------------------------------------------=
 pause
 cls
@@ -11,6 +13,7 @@ cls
 echo Lost in the woods, no human soul to be seen in the dark.. 
 echo Where would one go, with no knowledge or certainty?
 echo You think and think and think, but only two things come to mind:
+echo.
 echo - Wait for the day to fall (select 0)
 echo - Try to find your way out (select 1)
 set /p answer=
@@ -25,6 +28,7 @@ cls
 goto dialog1
 )
 if %answer%==1 (
+cls
 echo Carefully and nervous, you wander in one direction, something is pulling on you
 pause
 cls
@@ -72,12 +76,60 @@ echo as your eyes get used to the dark, you see all kinds of meat and skeletons,
 echo you quickly go to something shiny and grab it, then you run out again and away from the ruins
 pause
 cls
-echo Temporary end of game, thanks for playing!
-echo To replay, type 0
-set /p replay=
-if %replay%==0 (
+echo Moments later, you realize it's a flashlight, you try to turn it on..
+pause
 cls
-goto startgame
-)else (
-exit
+:dialogroad
+echo The flashlight works! You can see much better now, and you spot a road
+echo That road was not there before.. How is it there? What should i do?
+echo.
+echo - Follow the road (press 0)
+echo - Stay and sleep (press 1)
+echo - Go back to the ruins and inspect the underground room (2)
+set /p road=
+if %road%==0 (
+cls
+echo Following the road, Though nothing around you changes
+pause
+cls
+echo Finally you realize you are somehow walking on one spot continuously, defeated you go for another option
+pause
+cls
+goto dialogroad
 )
+if %road%==2 (
+cls
+echo You go back to the ruins, and search for the trapdoor
+pause
+cls
+echo You are unable to find it, it's like the trapdoor vanished
+echo Confused, you go for another option
+pause
+cls
+goto dialogroad
+)
+if %road%==1 (
+cls
+echo Test
+pause
+goto dialog4
+)else (
+cls
+goto dialogroad
+)
+:dialog4
+cls
+echo You decide to go to sleep, though stay alert
+echo ...
+echo Suddenly you hear a sound while asleep, when you wake up, the realisation strikes..
+pause
+cls
+echo It's day
+echo But how?
+echo It hasn't been for so long?
+echo Confused, you decide to follow the road
+pause
+cls
+echo As you walk, the sun slowly dries you, exhausted you arrive at a small wooden cabin at a lake
+echo You choose to sit down, and take a pause, as the road does not seem to end
+echo Eventually fainting from the warmth...
