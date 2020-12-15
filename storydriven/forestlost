@@ -83,9 +83,9 @@ cls
 echo The flashlight works! You can see much better now, and you spot a road
 echo That road was not there before.. How is it there? What should i do?
 echo.
-echo - Follow the road (press 0)
-echo - Stay and sleep (press 1)
-echo - Go back to the ruins and inspect the underground room (2)
+echo - Follow the road (select 0)
+echo - Stay and sleep (select 1)
+echo - Go back to the ruins and inspect the underground room (select 2)
 set /p road=
 if %road%==0 (
 cls
@@ -110,8 +110,6 @@ goto dialogroad
 )
 if %road%==1 (
 cls
-echo Test
-pause
 goto dialog4
 )else (
 cls
@@ -126,10 +124,32 @@ pause
 cls
 echo It's day
 echo But how?
-echo It hasn't been for so long?
+echo It hasn't been day for so long?
 echo Confused, you decide to follow the road
 pause
 cls
 echo As you walk, the sun slowly dries you, exhausted you arrive at a small wooden cabin at a lake
 echo You choose to sit down, and take a pause, as the road does not seem to end
 echo Eventually fainting from the warmth...
+pause
+cls
+:dialogwakingupohpleasegodjustendmealready
+echo You wake up a while later, and two things appear to you instantly:
+echo (The story changes depending on which option you choose here)
+echo.
+echo - Swim in the lake to wash yourself and your clothes (select 0)
+echo - Go on following the road (select 1)
+set /p storychange=
+if %storychange%==0 (
+cls
+echo - Choice 0 - swim in the lake and wash self and clothes
+pause
+)
+if %storychange%==1 (
+cls
+echo - Choice 1 - Follow road
+pause
+)else (
+cls
+goto dialogwakingupohpleasegodjustendmealready
+)
