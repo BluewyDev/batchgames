@@ -139,17 +139,19 @@ echo (The story changes depending on which option you choose here)
 echo.
 echo - Swim in the lake to wash yourself and your clothes (select 0)
 echo - Go on following the road (select 1)
-set /p storychange=
-if %storychange%==0 (
-cls
-echo - Choice 0 - swim in the lake and wash self and clothes
-pause
-)
-if %storychange%==1 (
-cls
-echo - Choice 1 - Follow road
-pause
-)else (
-cls
-goto dialogwakingupohpleasegodjustendmealready
-)
+//set /p storychange=
+//if %storychange%==0 (
+//cls
+//echo - Choice 0 - swim in the lake and wash self and clothes
+//pause
+//)
+//if %storychange%==1 (
+//cls
+//echo Chapter 1 | Road of finity
+//pause
+//goto dialogwakingupohpleasegodjustendmealready
+//)else (
+//cls
+//goto dialogwakingupohpleasegodjustendmealready
+//)
+// - THIS PIECE OF JUNK CODE DOES NOT PROPERLY WORK YET, TYPING 1 SIMPLY CLOSES THE BATCH INSTEAD OF FOLLOWING THE IF
